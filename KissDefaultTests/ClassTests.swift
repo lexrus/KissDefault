@@ -43,17 +43,20 @@ class ClassTests: XCTestCase {
         UserDefaults.standard.synchronize()
     }
 
-    func testExample() throws {
-        let cls = Cls()
-
-        XCTAssertEqual(Cls.staticVar, "Reo")
-        XCTAssertEqual(cls.normalVar, "normal")
-        XCTAssertEqual(cls.intV1ar, 1024)
+    func testClassCases() throws {
+//        let cls = Cls()
+//
+//        XCTAssertEqual(Cls.staticVar, "Reo")
+//
+//        Cls.staticVar = "hello"
+//        XCTAssertEqual(Cls.staticVar, "hello")
+//
+//        XCTAssertEqual(cls.normalVar, "normal")
+//        XCTAssertEqual(cls.intV1ar, 1024)
 
         let final = Final()
-        XCTAssertEqual(Final.finalStatic, 99)
+//        XCTAssertEqual(Final.finalStatic, 99)
         XCTAssertEqual(final.final, 88)
-        XCTAssert(final.boolVar == false)
         XCTAssertEqual(final.boolVar, true)
     }
 
