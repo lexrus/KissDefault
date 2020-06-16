@@ -35,7 +35,7 @@ var autoMarkMessagesAsRead: Bool
 var numberOfSearchResultsPerPage: Int
 ```
 
-### You can even benifit from Codable protocol
+### You can even benefit from Codable protocol
 
 ```swift
 struct ObjStruct: Equatable, Codable {
