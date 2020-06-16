@@ -40,6 +40,9 @@ struct StructCases {
     @Kiss()
     var kissOptional: String?
 
+    @Kiss(default: "hello")
+    var kissOptionalUnwrap: String?
+
     @KissCodable(default: ObjStruct(wrappedValue: 2048))
     var objV2: ObjStruct
 
@@ -48,6 +51,10 @@ struct StructCases {
 class StructTests: XCTestCase {
 
     override func setUpWithError() throws {
+        let domain = Bundle.main.bundleIdentifier!
+        UserDefaults.standard.removePersistentDomain(forName: domain)
+        UserDefaults.standard.synchronize()
+
         StructCases.staticVar = "new static var"
         StructCases.boolVar = false
         StructCases.objV1 = nil
@@ -67,9 +74,15 @@ class StructTests: XCTestCase {
         XCTAssertEqual(StructCases.boolVar, false)
         XCTAssertEqual(StructCases.objV1, nil)
 
-        XCTAssertEqual(StructCases().instanceVar, "new instance var")
-        XCTAssertEqual(StructCases().intV2ar, 33)
-        XCTAssertEqual(StructCases().objV2.wrappedValue, 2048)
+        var cases = StructCases()
+
+        XCTAssertEqual(cases.instanceVar, "new instance var")
+        XCTAssertEqual(cases.intV2ar, 33)
+        XCTAssertEqual(cases.objV2.wrappedValue, 2048)
+
+        XCTAssertEqual(cases.kissOptionalUnwrap, "hello")
+        cases.kissOptionalUnwrap = "world"
+        XCTAssertEqual(cases.kissOptionalUnwrap, "world")
     }
 
 }

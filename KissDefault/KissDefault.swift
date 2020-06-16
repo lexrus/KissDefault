@@ -19,8 +19,12 @@ public struct Kiss<T> {
         get {
             let key = demangleVariableNameFromCallstack()
 
-            if let obj = userDefaults.object(forKey: key) as? T {
-                return obj
+            guard let value = userDefaults.value(forKey: key) else {
+                return `default`
+            }
+
+            if let optional = value as? T {
+                return optional
             }
 
             return `default`
