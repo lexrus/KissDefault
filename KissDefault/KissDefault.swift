@@ -42,7 +42,7 @@ public struct Kiss<T> {
 
     public init(default: T, userDefaults: UserDefaults = .standard) {
         self.default = `default`
-        self.userDefaults = .standard
+        self.userDefaults = userDefaults
     }
 
 }
@@ -79,7 +79,7 @@ public struct KissCodable<T: Codable> {
 
     public init(default: T, userDefaults: UserDefaults = .standard) {
         self.default = `default`
-        self.userDefaults = .standard
+        self.userDefaults = userDefaults
     }
 
 }
