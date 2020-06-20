@@ -1,3 +1,4 @@
+### CAUTION: This lib __IS NOT__ production ready yet
 # 💋 KissDefault
 
 ![Language](https://img.shields.io/badge/language-Swift%205.2-orange)
@@ -56,6 +57,7 @@ KissDefault extracts the current callstack in `wrappedValue` (with `Thread.callS
 
 ### Todos
 
+- [ ] Find a way to get variable name without symbolicating
 - [ ] CocoaPods
 - [ ] Customized key
 - [ ] Boost demangle performance
